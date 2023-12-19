@@ -35,7 +35,7 @@ def setup_settings():
         # NOTE: lower values prevent player shadows from being rendered! 
         # some tweakers recommend 2048x3072
         "setting.lb_shadow_texture_width_override":     "1280",
-	    "setting.lb_shadow_texture_height_override":    "1280",
+        "setting.lb_shadow_texture_height_override":    "1280",
 
         # setup custom fsr resolution
         "setting.r_csgo_fsr_upsample":  "2",
@@ -65,7 +65,7 @@ def setup_settings():
         # so just setting them to 64 and letting the game figure it out
         # https://www.reddit.com/r/GlobalOffensive/comments/16uwozc/release_notes_for_9282023/
         "setting.r_character_decal_resolution": "64",
-	    "setting.r_texture_stream_max_resolution": "64",
+        "setting.r_texture_stream_max_resolution": "64",
 
         # disable CMAA and MSAA
         "setting.r_csgo_cmaa_enable": "0",
