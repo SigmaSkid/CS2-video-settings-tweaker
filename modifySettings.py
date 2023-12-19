@@ -9,10 +9,6 @@ import os
 # Root directory where user data is stored
 root_directory = "C:\\Program Files (x86)\\Steam\\userdata"
 
-# Function to change file permissions
-def change_permissions(file_path, mode):
-    os.chmod(file_path, mode)
-
 # Function to modify the data
 def setup_settings():
     settings = {
@@ -77,6 +73,7 @@ def setup_settings():
     }
     return settings
 
+# Read file, parse it, write new values
 def modify_config_values(file_path, new_values):
     with open(file_path, 'r') as file:
         lines = file.readlines()
@@ -91,9 +88,6 @@ def modify_config_values(file_path, new_values):
             else:
                 file.write(line)
 
-
-
-
 # Recursive function to find and modify the video.cfg file
 def find_and_modify_video_cfg(directory):
     for user_folder in os.listdir(directory):
@@ -104,7 +98,7 @@ def find_and_modify_video_cfg(directory):
                 print(f"Modified {cfg_path}")
 
                 # Change file permissions to make it writable
-                change_permissions(cfg_path, 0o777) 
+                os.chmod(cfg_path, 0o777) 
 
                 # Parse the lines to get key-value pairs
                 settings = setup_settings()
@@ -113,7 +107,7 @@ def find_and_modify_video_cfg(directory):
                 modify_config_values(cfg_path, settings)
 
                 # Change file permissions back to read-only
-                change_permissions(cfg_path, 0o444)  # Change file permissions to read-only
+                os.chmod(cfg_path, 0o444)  # Change file permissions to read-only
 
 # Start searching for video.cfg files
 find_and_modify_video_cfg(root_directory)
